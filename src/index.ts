@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import routes from "./routes/routes";
-import sequelize from "./config/database";
+import { sequelize } from "./models";
 
 dotenv.config();
 
@@ -31,7 +31,7 @@ app.use(helmet());
     console.error("Unable to connect to the database:", error);
     process.exit(1);
   }
-})()
+})();
 
 // Route handling
 app.use("/api", routes);

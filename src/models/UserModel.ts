@@ -2,7 +2,7 @@ import { hashSync } from "bcrypt";
 import { DataTypes, Model, Optional, Sequelize } from "sequelize";
 
 interface UserAttributes {
-  id: string;
+  id: number;
   first_name: string;
   last_name: string;
   password: string;
@@ -17,7 +17,7 @@ class UserModel
   extends Model<UserAttributes, UserCreationAttributes>
   implements UserAttributes
 {
-  public id!: string;
+  public id!: number;
 
   public first_name!: string;
 

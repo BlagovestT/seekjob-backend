@@ -1,13 +1,13 @@
 import { DataTypes, Model, Optional, Sequelize } from "sequelize";
 
 interface JobAttributes {
-  id: string;
+  id: number;
   user_id: string;
   title: string;
   description: string;
   location: string;
-  emploument_type: string;
-  min_experience: string;
+  employment_type: string;
+  min_experience: number;
   keywords: string;
   created_at?: Date;
   updated_at?: Date;
@@ -19,7 +19,7 @@ class JobModel
   extends Model<JobAttributes, JobCreationAttributes>
   implements JobAttributes
 {
-  public id!: string;
+  public id!: number;
 
   public user_id!: string;
 
@@ -29,9 +29,9 @@ class JobModel
 
   public location!: string;
 
-  public emploument_type!: string;
+  public employment_type!: string;
 
-  public min_experience!: string;
+  public min_experience!: number;
 
   public keywords!: string;
 
@@ -63,7 +63,7 @@ class JobModel
           type: DataTypes.STRING,
           allowNull: false,
         },
-        emploument_type: {
+        employment_type: {
           type: DataTypes.STRING,
           allowNull: false,
         },

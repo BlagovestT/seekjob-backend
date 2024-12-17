@@ -1,9 +1,9 @@
 import { DataTypes, Model, Optional, Sequelize } from "sequelize";
 
 interface JobsEnrollmentsAttributes {
-  id: string;
-  job_id: string;
-  user_id: string;
+  id: number;
+  job_id: number;
+  user_id: number;
 }
 
 interface JobsEnrollmentCreationAttributes
@@ -13,11 +13,11 @@ class JobsEnrollmentModel
   extends Model<JobsEnrollmentsAttributes, JobsEnrollmentCreationAttributes>
   implements JobsEnrollmentsAttributes
 {
-  public id!: string;
+  public id!: number;
 
-  public job_id!: string;
+  public job_id!: number;
 
-  public user_id!: string;
+  public user_id!: number;
 
   public static initModel(sequelize: Sequelize): typeof JobsEnrollmentModel {
     JobsEnrollmentModel.init(
@@ -28,17 +28,17 @@ class JobsEnrollmentModel
           primaryKey: true,
         },
         job_id: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
         user_id: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
       },
       {
         sequelize,
-        tableName: "jobs_enrollments",
+        tableName: "job_enrollments",
         underscored: true,
       }
     );

@@ -1,10 +1,9 @@
 import { DataTypes, Model, Optional, Sequelize } from "sequelize";
 
 interface UserRoleAttributes {
-  id: string;
-  user_id: string;
-  role_id: string;
-  role_name: string;
+  id: number;
+  user_id: number;
+  role_id: number;
   created_at?: Date;
   updated_at?: Date;
 }
@@ -16,13 +15,11 @@ class UserRoleModel
   extends Model<UserRoleAttributes, UserRoleCreationAttributes>
   implements UserRoleCreationAttributes
 {
-  public id!: string;
+  public id!: number;
 
-  public user_id!: string;
+  public user_id!: number;
 
-  public role_id!: string;
-
-  public role_name!: string;
+  public role_id!: number;
 
   public readonly createdAt!: Date;
 
@@ -37,15 +34,11 @@ class UserRoleModel
           primaryKey: true,
         },
         user_id: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
         role_id: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        role_name: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
         created_at: {

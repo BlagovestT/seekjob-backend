@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional, Sequelize } from "sequelize";
 
 interface RoleAttributes {
-  id: string;
+  id: number;
   role_name: string;
   created_at?: Date;
   updated_at?: Date;
@@ -13,7 +13,7 @@ class RoleModel
   extends Model<RoleAttributes, RoleCreationAttributes>
   implements RoleCreationAttributes
 {
-  public id!: string;
+  public id!: number;
 
   public role_name!: string;
 
