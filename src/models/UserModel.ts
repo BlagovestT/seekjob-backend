@@ -72,12 +72,12 @@ class UserModel
         createdAt: "created_at",
         updatedAt: "updated_at",
         defaultScope: {
-          attributes: { exclude: ["password", "created_at", "updated_at"] },
+          attributes: { exclude: ["created_at", "updated_at"] },
         },
         hooks: {
-          beforeCreate: (user) => {
-            user.password = hashSync(user.password, 10);
-          },
+          // beforeCreate: (user) => {
+          //   user.password = hashSync(user.password, 10);
+          // },
         },
       }
     );

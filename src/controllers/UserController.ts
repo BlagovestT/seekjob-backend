@@ -82,3 +82,18 @@ export const deleteUserById = async (
     res.status(500).json({ message: "Error deleting user" });
   }
 };
+
+// Get the current logged profile
+// GET /auth/profile
+// Public
+
+export const profile = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const user = req.body.user;
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Error fetching user", error);
+    res.status(500).json({ message: "Error fetching profile" });
+  }
+};

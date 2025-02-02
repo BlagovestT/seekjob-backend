@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import JobModel from "../models/JobModel";
-import { log } from "console";
 
 // Create job
 //POST /jobs
