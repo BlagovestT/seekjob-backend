@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import { ErrorHandlerMiddleware } from "./middlewares/ErrorHandlerMiddleware";
+import { applyRateLimiting } from "./middlewares/RateLimiter";
 import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
@@ -18,6 +19,8 @@ app.use(express.json({ limit: "50kb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(helmet());
+
+applyRateLimiting(app);
 
 // Database connection and synchronization
 (async () => {

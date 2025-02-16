@@ -10,6 +10,7 @@ import {
 const router = Router();
 
 router.post("/", createJob);
+
 router.get("/", getAllJobs);
 router.get("/:id", getJobById);
 router.get("/:id", updateJobById);
