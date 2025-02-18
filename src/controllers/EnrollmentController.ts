@@ -25,3 +25,41 @@ export const createEnrollment = async (
     res.status(500).json({ message: "Error creating enrollment" });
   }
 };
+
+//Get enrollments
+//GET /enrollments
+//Public
+export const getAllEnrollments = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
+  try {
+    const enrollments = await JobsEnrollmentModel.findAll();
+    res.status(200).json(enrollments);
+  } catch (error) {
+    console.error("Error fetching enrollments", error);
+    res.status(500).json({ message: "Error fetching enrollments" });
+  }
+};
+
+//Get enrollments by id
+//GET /enrollments/:id
+//Public
+export const getEnrollmentById = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
+  try {
+    const { id } = req.params;
+
+    const enrollment = await JobsEnrollmentModel.findByPk(id);
+
+    if (!enrollment)
+      return res.status(404).json({ message: "Enrollment not found" });
+
+    res.status(200).json(enrollment);
+  } catch (error) {
+    console.error("Error fetching enrollment", error);
+    res.status(500).json({ message: "Error fetching enrollment" });
+  }
+};

@@ -1,8 +1,14 @@
 import { Router } from "express";
-import { createEnrollment } from "../controllers/EnrollmentController";
+import {
+  createEnrollment,
+  getAllEnrollments,
+  getEnrollmentById,
+} from "../controllers/EnrollmentController";
 
 const router = Router();
 
 router.post("/", createEnrollment);
+router.get("/", getAllEnrollments);
+router.get("/:id", getEnrollmentById);
 
 export default router;
